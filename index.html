@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caprice Studios | AAA Mobile Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        neonPrimary: 'var(--neon-primary)',
+                        neonComplementary: 'var(--neon-complementary)',
+                        neonHover: 'var(--neon-hover)',
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --neon-primary: #00f3ff;
+            --neon-complementary: #ff4c00;
+            --neon-hover: #ff4c00;
+            --glow-spread: rgba(0, 243, 255, 0.15);
+        }
+        .slime-mode {
+            --neon-primary: #39ff14;
+            --neon-complementary: #ff39ff;
+            --neon-hover: #00f3ff;
+            --glow-spread: rgba(57, 255, 20, 0.15);
+        }
+        body { background-color: #0a0a0a; transition: background-color 0.5s; }
+        
+        section, nav {
+            position: relative;
+            z-index: 10;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+        }
+        .glass-card:hover {
+            border-color: var(--neon-primary);
+            box-shadow: 0 0 20px var(--glow-spread);
+            transform: translateY(-5px);
+        }
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 15% 50%, var(--glow-spread), transparent 25%),
+                        radial-gradient(circle at 85% 30%, var(--glow-spread), transparent 25%);
+            z-index: -1;
+            pointer-events: none;
+            transition: background 0.5s;
+        }
+    </style>
+</head>
+<body class="text-white font-sans antialiased overflow-x-hidden selection:bg-neonPrimary selection:text-dark">
+
+    <div class="fixed inset-0 bg-dark z-[-3]"></div>
+    <div class="fixed inset-0 bg-grid-pattern bg-[size:40px_40px] z-[-2]"></div>
+    <div class="bg-mesh z-[-1]"></div>
+
+    <nav class="fixed w-full z-50 glass-card border-x-0 border-t-0 rounded-none bg-dark/50 px-6 py-4 flex justify-between items-center">
+        <div id="studio-logo" class="font-mono font-bold text-xl tracking-tighter cursor-pointer select-none">
+            <span class="text-neonPrimary transition-colors duration-500">CAPRICE</span> <span class="text-neonComplementary transition-colors duration-500">STUDIOS</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="#projects" class="hover:text-neonPrimary transition-colors">PROJECTS</a>
+            <a href="#transmissions" class="hover:text-neonPrimary transition-colors">TRANSMISSIONS</a>
+            <a href="#about" class="hover:text-neonPrimary transition-colors">ABOUT</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
+        <div class="inline-block mb-4 px-3 py-1 rounded-full glass-card text-xs font-mono text-neonPrimary animate-fade-in">
+            SYS.STATUS // ONLINE & DEPLOYED
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in" style="transition-delay: 100ms;">
+            Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonPrimary to-blue-500 transition-colors duration-500">Digital</span><br>Adrenaline.
+        </h1>
+        <p class="text-gray-400 max-w-2xl text-lg md:text-xl mb-10 animate-fade-in" style="transition-delay: 200ms;">
+            Independent AAA development studio based in Tucson, Arizona. Crafting a diverse portfolio of atmospheric action games, top-down survival experiences, and intelligent utility apps, all driven by cutting-edge mechanics and sleek, intuitive user interfaces.
+        </p>
+        <a href="#projects" class="glass-card px-8 py-4 font-mono font-bold text-neonPrimary border-neonPrimary/50 hover:bg-neonHover hover:text-white hover:border-neonHover transition-all animate-fade-in" style="transition-delay: 300ms;">
+            [ VIEW PROJECTS ]
+        </a>
+    </section>
+
+    <section id="projects" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 border-l-4 border-neonPrimary pl-4 animate-fade-in transition-colors duration-500">ACTIVE ARSENAL</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-8 flex flex-col relative overflow-hidden group animate-fade-in">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonPrimary to-transparent opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
+                <div class="text-xs font-mono text-neonPrimary mb-3 transition-colors duration-500">VERSION 1.5.6 // LIVE</div>
+                <h3 class="text-2xl font-bold mb-3">Slimeuout</h3>
+                <p class="text-gray-400 text-sm mb-6 flex-grow">A high-speed arena survival game featuring native AdMob monetization, intelligent boundary physics, and strategic split-screen UI.</p>
+                <div class="flex gap-2 mb-6 flex-wrap">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Canvas</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Capacitor</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.capricestudios.slimeuout" target="_blank" class="text-sm font-mono text-white hover:text-neonPrimary flex items-center gap-2 transition-colors duration-500">
+                    PLAY STORE <span>→</span>
+                </a>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col relative overflow-hidden group animate-fade-in" style="transition-delay: 100ms;">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonPrimary to-transparent opacity-30 group-hover:opacity-80 transition-all duration-500"></div>
+                <div class="text-xs font-mono text-yellow-400 mb-3">STATUS // BETA</div>
+                <h3 class="text-2xl font-bold mb-3">Just Relax</h3>
+                <p class="text-gray-400 text-sm mb-6 flex-grow">Transform the cycle of anxiety into a journey of recovery with therapeutic grounding tools designed to soothe your nervous system and restore emotional balance.</p>
+                <div class="flex gap-2 mb-6 flex-wrap">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">LLM Integration</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Audio Guides</span>
+                </div>
+                <span class="text-sm font-mono text-gray-600 cursor-not-allowed">PRE-LAUNCH</span>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col relative overflow-hidden group animate-fade-in" style="transition-delay: 200ms; background: rgba(0,0,0,0.4);">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gray-600 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                <div class="text-xs font-mono text-gray-500 mb-3">STATUS // IN DEVELOPMENT</div>
+                <h3 class="text-2xl font-bold mb-3">The Dead Sector</h3>
+                <p class="text-gray-400 text-sm mb-6 flex-grow">Plunges players into a brutal, atmospheric fight for survival. Trapped between a scorched exterior and unlit bunkers, you must rely on a fading flashlight and scavenged supplies to stay alive.</p>
+                <div class="flex gap-2 mb-6 flex-wrap">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Survival</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Inventory</span>
+                </div>
+                <span class="text-sm font-mono text-gray-600 cursor-not-allowed">ACCESS RESTRICTED</span>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col relative overflow-hidden group animate-fade-in" style="transition-delay: 300ms;">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonPrimary to-transparent opacity-30 group-hover:opacity-80 transition-all duration-500"></div>
+                <div class="text-xs font-mono text-gray-600 mb-3">STATUS // CONCEPT & PROTOTYPE</div>
+                <h3 class="text-2xl font-bold mb-3">Shinigami Reckoning</h3>
+                <p class="text-gray-400 text-sm mb-6 flex-grow">A dark, atmospheric stealth-action thriller. Wield a supernatural notebook to manipulate fate and eliminate targets while outsmarting relentless detectives and evading otherworldly death gods in a high-stakes game of cat-and-mouse.</p>
+                <div class="flex gap-2 mb-6 flex-wrap">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Stealth</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Action</span>
+                </div>
+                <span class="text-sm font-mono text-gray-600 cursor-not-allowed">CLASSIFIED</span>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col relative overflow-hidden group animate-fade-in" style="transition-delay: 400ms; background: rgba(0,0,0,0.2);">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonPrimary to-transparent opacity-30 group-hover:opacity-80 transition-all duration-500"></div>
+                <div class="text-xs font-mono text-gray-600 mb-3">STATUS // ARCHIVED</div>
+                <h3 class="text-2xl font-bold mb-3">Casino Survivor</h3>
+                <p class="text-gray-400 text-sm mb-6 flex-grow">An intense, fast-paced arcade survival experience. Navigate a high-stakes casino floor to amass maximum wealth and fight your way to the exit while dodging relentless waves of corrupt dealers and powerful Pit Bosses.</p>
+                <div class="flex gap-2 mb-6 flex-wrap">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Arcade</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded border border-white/10 text-gray-300">Brawler</span>
+                </div>
+                <span class="text-sm font-mono text-gray-600 cursor-not-allowed">INACTIVE</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="transmissions" class="py-12 px-6 max-w-4xl mx-auto animate-fade-in">
+        <div class="glass-card p-6 border-gray-700 bg-black/60 rounded-md shadow-2xl">
+            <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="ml-2 font-mono text-xs text-gray-500">caprice_os.exe --live_feed</span>
+            </div>
+            <div class="font-mono text-sm space-y-3">
+                <div class="text-neonPrimary mb-4 transition-colors duration-500">Establishing secure connection to mainframe... SUCCESS.</div>
+                
+                <div class="flex gap-3 text-gray-300 hover:text-white transition-colors">
+                    <span class="text-green-400 shrink-0">[2026-05-12]</span>
+                    <p>:: <span class="text-neonPrimary transition-colors duration-500">SLIMEUOUT V1.5.6</span> :: NATIVE ADMOB INTEGRATION & REVIVE SYSTEM SUCCESSFULLY DEPLOYED TO PRODUCTION.</p>
+                </div>
+                
+                <div class="flex gap-3 text-gray-300 hover:text-white transition-colors">
+                    <span class="text-green-400 shrink-0">[2026-05-10]</span>
+                    <p>:: <span class="text-neonPrimary transition-colors duration-500">JUST RELAX</span> :: AUDIO GUIDANCE MODULE SECURED. 5-MINUTE AND 10-MINUTE EXPANDED BREATHING ROUTINES IN ACTIVE QUEUE.</p>
+                </div>
+                
+                <div class="flex gap-3 text-gray-300 hover:text-white transition-colors">
+                    <span class="text-green-400 shrink-0">[2026-05-08]</span>
+                    <p>:: <span class="text-neonPrimary transition-colors duration-500">THE DEAD SECTOR</span> :: SCAVENGE ECONOMY, IN-GAME CURRENCY & HEALTH PACKS FULLY IMPLEMENTED. NEW LEVEL ARCHITECTURE INITIATED.</p>
+                </div>
+
+                <div class="flex gap-3 text-gray-300 hover:text-white transition-colors">
+                    <span class="text-green-400 shrink-0">[2026-03-14]</span>
+                    <p>:: <span class="text-neonPrimary transition-colors duration-500">CASINO SURVIVOR</span> :: BOSS PROGRESSION LOGIC IMPLEMENTED. DEALER AND PIT BOSS CHASE SEQUENCES ACTIVE.</p>
+                </div>
+
+                <div class="flex gap-3 text-gray-300 hover:text-white transition-colors">
+                    <span class="text-green-400 shrink-0">[2025-10-22]</span>
+                    <p>:: <span class="text-neonPrimary transition-colors duration-500">SHINIGAMI RECKONING</span> :: SUPERNATURAL PURSUIT AI AND DETECTIVE EVASION MECHANICS IN ACTIVE PROTOTYPE.</p>
+                </div>
+                
+                <div class="mt-4 flex">
+                    <span class="text-neonPrimary mr-2 transition-colors duration-500">></span>
+                    <span class="w-2 h-4 bg-neonPrimary animate-pulse block transition-colors duration-500"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 border-l-4 border-neonPrimary pl-4 animate-fade-in transition-colors duration-500">STUDIO LOG</h2>
+        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+            
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active animate-fade-in">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-dark text-neonPrimary shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-[0_0_10px_var(--glow-spread)] transition-colors duration-500">
+                    <div class="w-2 h-2 rounded-full bg-neonPrimary transition-colors duration-500"></div>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6">
+                    <div class="text-neonPrimary font-mono text-sm mb-1 transition-colors duration-500">2026</div>
+                    <div class="font-bold text-lg text-white">Automated Cloud Infrastructure</div>
+                    <div class="text-gray-400 text-sm mt-2">Migrated all compilation pipelines to GitHub Actions, bypassing local PWA wrappers for true native AAB generation.</div>
+                </div>
+            </div>
+
+            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active animate-fade-in">
+                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-dark text-gray-500 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-gray-600"></div>
+                </div>
+                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6">
+                    <div class="text-gray-500 font-mono text-sm mb-1">2025</div>
+                    <div class="font-bold text-lg text-white">Studio Formation</div>
+                    <div class="text-gray-400 text-sm mt-2">Established core engine architecture using HTML5 Canvas and vanilla JavaScript for maximum performance on mobile hardware.</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 mt-12 py-12 px-6 text-center relative z-10">
+        <div class="font-mono font-bold text-xl text-white mb-6">
+            <span class="text-neonPrimary transition-colors duration-500">CAPRICE</span> <span class="text-neonComplementary transition-colors duration-500">STUDIOS</span>
+        </div>
+        <div class="flex justify-center space-x-6 mb-8">
+            <a href="https://github.com/Ctowns8" target="_blank" class="text-gray-400 hover:text-neonPrimary transition-colors">GitHub</a>
+            <a href="mailto:capricestudios.test@gmail.com" class="text-gray-400 hover:text-neonPrimary transition-colors">Email</a>
+        </div>
+        <p class="text-gray-600 text-xs">© 2026 Caprice Studios. Built in Spck Editor.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-fade-in').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Caprice Studios Easter Egg Trigger
+            let clickCount = 0;
+            let eggTriggered = false;
+            const logo = document.getElementById('studio-logo');
+
+            logo.addEventListener('click', () => {
+                if (eggTriggered) return;
+                clickCount++;
+                if (clickCount >= 5) {
+                    eggTriggered = true;
+                    document.documentElement.classList.add('slime-mode');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
